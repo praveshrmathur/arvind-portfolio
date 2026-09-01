@@ -654,7 +654,8 @@
     .media-placeholder {
       aspect-ratio: 16 / 9;
       width: 100%;
-      max-width: 1140px;
+      max-width: 860px;
+      max-height: 480px;
       margin: 0 auto;
       background: #141416;
       border-radius: 20px;
@@ -763,8 +764,10 @@
     /* Dynamic Grid: 1x 16:9 Banner + 3x 9:16 Reels Rhythm */
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(24px, 3.5vw, 42px) clamp(16px, 2vw, 28px);
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      max-width: 1040px;
+      margin: 0 auto;
+      gap: clamp(20px, 2.5vw, 32px);
       position: relative;
       z-index: 2;
     }
@@ -780,10 +783,14 @@
     /* 16:9 Landscape Card */
     .project.project-landscape {
       grid-column: 1 / -1;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
     }
     .project.project-landscape .project-media {
       aspect-ratio: 16 / 9;
       width: 100%;
+      max-height: 480px;
       height: auto;
     }
 
@@ -792,8 +799,9 @@
       grid-column: span 1;
     }
     .project.project-portrait .project-media {
-      aspect-ratio: 9/16;
+      aspect-ratio: 9 / 16;
       width: 100%;
+      max-height: 490px;
     }
 
     .project-media {
@@ -1631,7 +1639,22 @@
     }
     @media (max-width: 540px) {
       .work-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .project.project-landscape {
+        grid-column: 1 / -1;
+      }
+      .project-overlay-title {
+        font-size: 11px;
+      }
+      .project-ratio-badge {
+        font-size: 8px;
+      }
+      .project-play-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
       }
       .contact-grid {
         grid-template-columns: 1fr;
